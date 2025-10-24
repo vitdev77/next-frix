@@ -1,38 +1,10 @@
 import type { Metadata } from 'next';
-import {
-  Geist,
-  Geist_Mono,
-  Roboto,
-  Roboto_Condensed,
-  Ubuntu,
-  JetBrains_Mono,
-} from 'next/font/google';
-import './globals.css';
+import { Roboto_Flex } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
-import { LayoutProvider } from '@/hooks/use-layout';
-import { SiteHeader } from '@/components/site-header';
+import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-const roboto = Roboto({
+const robotoFlex = Roboto_Flex({
   variable: '--font-roboto',
-  subsets: ['latin'],
-});
-const robotoCondensed = Roboto_Condensed({
-  variable: '--font-roboto-condensed',
-  subsets: ['latin'],
-});
-const ubuntu = Ubuntu({
-  weight: '400',
-});
-const jetBrainsMono = JetBrains_Mono({
-  variable: '--font-jetbrains-mono',
   subsets: ['latin'],
 });
 
@@ -61,24 +33,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${geistSans.className} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${robotoFlex.className} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <LayoutProvider>
-            <div className="bg-background relative z-10 flex min-h-svh flex-col">
-              <SiteHeader />
-              <main className="flex flex-1 justify-center flex-col">
-                {children}
-              </main>
-              {/* <SiteFooter /> */}
-            </div>
-          </LayoutProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>

@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import { useTheme } from 'next-themes';
-import { Button } from '@/components/ui';
-import { BiAdjust } from 'react-icons/bi';
+import { Button } from '@/components/ui/button';
+import { IconBrightnessFilled } from '@tabler/icons-react';
 
 export const ThemeToggle: React.FC = () => {
   const { setTheme, theme } = useTheme();
@@ -15,7 +15,7 @@ export const ThemeToggle: React.FC = () => {
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       title="Toggle Theme"
     >
-      <BiAdjust />
+      <IconBrightnessFilled />
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
