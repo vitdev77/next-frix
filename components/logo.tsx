@@ -11,7 +11,7 @@ export const Logo: React.FC<Props> = ({ className }) => {
   return (
     <Link href={'/'} className={className}>
       <IconPyramid />
-      <span className="text-base font-semibold">Nextfrix</span>
+      <span className="text-base font-bold uppercase">Nextfrix</span>
     </Link>
   );
 };

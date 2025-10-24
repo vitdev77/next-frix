@@ -1,9 +1,6 @@
-import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { ThemeToggle } from '../theme-toggle';
-import Link from 'next/link';
-import { IconArrowBack } from '@tabler/icons-react';
 
 export function DashboardHeader() {
   return (
@@ -17,13 +14,6 @@ export function DashboardHeader() {
         <h1 className="text-base font-medium">Welcome to Dashboard Page</h1>
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
-
-          <Link href={'/'}>
-            <Button>
-              <IconArrowBack />
-              Back to Home
-            </Button>
-          </Link>
         </div>
       </div>
     </header>
