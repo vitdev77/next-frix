@@ -11,7 +11,7 @@ export const SearchField: React.FC<Props> = ({ className }) => {
   return (
     <div className={className}>
       <InputGroup>
-        <InputGroupInput placeholder="Search..." />
+        <InputGroupInput id="searchField" placeholder="Search..." />
         <InputGroupAddon>
           <Search />
         </InputGroupAddon>

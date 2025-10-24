@@ -8,6 +8,7 @@ import { Container } from './container';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { SearchField } from './search-field';
+import { CommandMenu } from './command-menu';
 
 interface Props {
   className?: string;
@@ -18,9 +19,10 @@ export const Header: React.FC<Props> = ({ className }) => {
     <header className={cn('bg-background sticky top-0 z-50 w-full', className)}>
       <Container>
         <div className="flex items-center justify-between py-3.5 w-full">
-          <Logo />
+          <Logo className="flex items-center gap-1" />
           <div className="ml-auto flex items-center gap-2 md:flex-1 md:justify-end">
-            <SearchField />
+            {/* <SearchField /> */}
+            <CommandMenu />
 
             <Separator
               orientation="vertical"
