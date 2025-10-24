@@ -8,7 +8,6 @@ import { Container } from './container';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { SearchField } from './search-field';
-import { IconArrowNarrowRight } from '@tabler/icons-react';
 
 interface Props {
   className?: string;
@@ -38,10 +37,7 @@ export const Header: React.FC<Props> = ({ className }) => {
             <ThemeToggle />
 
             <Link href={'/dashboard'}>
-              <Button>
-                Dashboard
-                <IconArrowNarrowRight />
-              </Button>
+              <Button>Dashboard</Button>
             </Link>
           </div>
         </div>
