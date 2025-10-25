@@ -27,22 +27,46 @@ async function up() {
     data: series,
   });
 
+  await prisma.product.createMany({
+    data: [
+      {
+        name: 'MDRB471MGF01O',
+        imageUrl: '/products/mdrb471mgf01O.jpg',
+        seriesId: 1,
+        productColorId: 1,
+      },
+      {
+        name: 'MDRB471MGF33O',
+        imageUrl: '/products/mdrb471mgf33O.jpg',
+        seriesId: 1,
+        productColorId: 3,
+      },
+      {
+        name: 'MDRB471MGF46O',
+        imageUrl: '/products/mdrb471mgf46O.jpg',
+        seriesId: 1,
+        productColorId: 4,
+      },
+    ],
+  });
+
   await prisma.productColor.createMany({
     data: productColor,
   });
 }
 
 async function down() {
-  // await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE`;
-  // await prisma.$executeRaw`TRUNCATE TABLE "Brand" RESTART IDENTITY CASCADE`;
-  // await prisma.$executeRaw`TRUNCATE TABLE "Series" RESTART IDENTITY CASCADE`;
-  // await prisma.$executeRaw`TRUNCATE TABLE "ProductColor" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "Brand" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "Series" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "Product" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "ProductColor" RESTART IDENTITY CASCADE`;
 }
 
 async function main() {
   try {
-    await up();
     await down();
+    await up();
   } catch (err) {
     console.error(err);
   }

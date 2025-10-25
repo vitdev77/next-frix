@@ -1,19 +1,3 @@
-// import * as bcrypt from 'bcrypt';
-
-// export const users = [
-//   {
-//     name: 'User',
-//     email: 'user@test.com',
-//     password: bcrypt.hashSync('111111', 10),
-//   },
-//   {
-//     name: 'Admin',
-//     email: 'admin@test.com',
-//     password: bcrypt.hashSync('111111', 10),
-//     role: 'ADMIN',
-//   },
-// ];
-
 export const brands = [
   { name: 'Midea', imageUrl: '/brands/midea.png' },
   { name: 'General Electronics', imageUrl: '/brands/general-electronics.webp' },
@@ -33,8 +17,8 @@ export const series = [
 
 export const productColor = [
   { name: 'White' },
-  { name: 'Beige' },
   { name: 'Black' },
+  { name: 'Beige' },
   { name: 'Inox' },
   { name: 'Basalt Gray' },
 ];
