@@ -10,10 +10,25 @@ datasource db {
 model User {
   id Int @id @default(autoincrement())
 
-  firstName String
-  lastName  String
-  email     String @unique
-  password  String
+  name     String
+  email    String   @unique
+  password String
+  role     UserRole @default(USER)
+
+  provider   String?
+  providerId String?
+
+  createdAt DateTime @default(now())
+  updatadAt DateTime @updatedAt
+}
+
+model Brand {
+  id Int @id @default(autoincrement())
+
+  name     String
+  imageUrl String?
+
+  series Series[]
 
   createdAt DateTime @default(now())
   updatadAt DateTime @updatedAt
@@ -26,6 +41,9 @@ model Series {
 
   products Product[]
 
+  brandId Int
+  brand   Brand @relation(fields: [brandId], references: [id])
+
   createdAt DateTime @default(now())
   updatadAt DateTime @updatedAt
 }
@@ -36,9 +54,28 @@ model Product {
   name     String
   imageUrl String
 
-  series   Series @relation(fields: [seriesId], references: [id])
   seriesId Int
+  series   Series @relation(fields: [seriesId], references: [id])
+
+  productColorId Int
+  productColor   ProductColor @relation(fields: [productColorId], references: [id])
 
   createdAt DateTime @default(now())
   updatadAt DateTime @updatedAt
+}
+
+model ProductColor {
+  id Int @id @default(autoincrement())
+
+  products Product[]
+
+  name String
+
+  createdAt DateTime @default(now())
+  updatadAt DateTime @updatedAt
+}
+
+enum UserRole {
+  USER
+  ADMIN
 }
